@@ -30,11 +30,25 @@ public class QuickFind {
 		return sets[i];
 	}
 	public void union(int p,int q) {
+		int pid = sets[p];
+		int qid = sets[q];
+		for(int i=0;i<sets.length;i++) {
+			if(qid==sets[i]) {
+				sets[i] = pid;
+			}
+		}
 		
 	}
 	public boolean Connected(int p,int q) {
 		
 		return find(p)==find(q);
 		
+	}
+	
+	public void print() {
+		for (int i : sets) {
+			System.out.print(i+" ");
+		}
+		System.out.println();
 	}
 }
